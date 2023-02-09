@@ -1,60 +1,42 @@
 import React from 'react';
-import {
-  ImageBackground,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native'
-import colors from './src/Utils/colors';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-  function App() {
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { View, StyleSheet, Animated, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Home from './src/Config/Screens/Home';
+import Signin from './src/Config/Screens/signin';
+import Signup from './src/Config/Screens/signup';
 
+const Stack = createNativeStackNavigator();
+const TopTab = createMaterialTopTabNavigator();
+
+const tabBarOptions = {
+  indicatorStyle: { backgroundColor: 'blue' },
+  backgroundColor: 'green',
+};
+
+export default function App() {
   return (
-    <SafeAreaView style= {styles.main}>
-      <StatusBar
-        backgroundColor= "white"
-      />
-      <View style= {styles.headingView}>
-      <Text style= {styles.heading}>AWAL</Text>
-      </View>
-      <View style={styles.header}>
-        <ImageBackground source={require('./src/Utils/Images/vector.png')}/>
-      </View>
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={styles.body}>
-      </ScrollView>
+    <SafeAreaView style={styles.mainView}>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+          />
+          <Stack.Screen name="Signin" component={Signin} />
+          <Stack.Screen name="Signup" component={Signup} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  main: {
+  mainView: {
     width: '100%',
-    height: '100%',
-    backgroundColor: colors.themeColorLight
+    flex: 1,
   },
-  heading: {
-    width: '100%',
-    height: '4%',
-  },
-  header: {
-    width: '100%',
-    flex: 1.5,
-    backgroundColor: "red" /* colors.themeColorDark */,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40,
-  },
-  body: {
-    width: '100%',
-    flex: 4,
-  }
-
 });
-
-export default App;
