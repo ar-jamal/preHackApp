@@ -19,7 +19,7 @@ export default function CusHeader() {
             </View>
             <View style={styles.headerRight}>
                 <TouchableOpacity>
-                    <Icon />
+                    <Icon  />
                 </TouchableOpacity>
 
             </View>
