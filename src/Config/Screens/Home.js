@@ -13,7 +13,7 @@ import {
 import CusButton from './src/Components/cusButton';
 import colors from './src/Utils/colors';
 
-export default function Home() {
+export default function App() {
 
   return (
     <SafeAreaView style={styles.main}>
@@ -40,13 +40,10 @@ export default function Home() {
         <CusButton
           title='MASUK'
           style={{
-            width: '50%',
-            backgroundColor: colors.themeColorDark,
+            width: '90%',
             alignSelf: 'center',
-            borderRadius: 20
           }}
-          styleChild={{ color: 'white' }}
-          // onPress= {onPressHandler()}
+        // onPress= {onPressHandler()}
         />
       </ScrollView>
     </SafeAreaView>
@@ -61,7 +58,7 @@ const styles = StyleSheet.create({
   // },
   header: {
     width: '100%',
-    // height: '70%',
+    height: '67%',
     // flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
@@ -82,7 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     // left: '10%',
-    // top: '10%',
+    // top: '20%',
     // backgroundColor: "yellow"
   },
   logo: {
@@ -98,7 +95,7 @@ const styles = StyleSheet.create({
   body: {
     width: '100%',
     // flex: 6,
-    paddingTop: '10%',
+    paddingTop: '6%',
     marginLeft: '8%',
     justifyContent: 'space-between',
     // backgroundColor: 'blue',
@@ -107,7 +104,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginTop: 12,
   }
-
-
 });
-

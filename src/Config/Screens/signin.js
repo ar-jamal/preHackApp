@@ -1,4 +1,4 @@
-mport React from 'react';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -8,9 +8,8 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import CusHeader from './src/Config/Components/header';
 import {View, StyleSheet, Animated, TouchableOpacity, ScrollView} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import Signin from './src/Config/Screens/signin';
 
-export default function Signin () {
+export default function Signin02 () {
     return(
         <SafeAreaView>
             <ScrollView>

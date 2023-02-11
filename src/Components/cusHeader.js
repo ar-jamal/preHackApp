@@ -1,42 +1,66 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { View, StyleSheet, Animated, TouchableOpacity, ScrollView, Image, } from 'react-native';
 
-import Signup from './src/Config/Screens/signup';
-import Home from './src/Config/Screens/home';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import CusHeader from './src/Config/Components/header';
-import { View, StyleSheet, Animated, TouchableOpacity, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import Signin from './src/Config/Screens/signin';
-
-export default function CusHeader() {
+export default function CusHeader(props) {
     return (
         <View style={styles.headerView}>
             <View style={styles.headerLeft}>
-                <Image style={styles.logo} source={require('../Utils/Images/Logo.png')} />
-                <Image style={styles.titleText} source={require('../Utils/Images/Plantify.png')} />
+                <Image style={styles.logo} source={require('../Utils/Images/LogoHeader.png')} />
+                <Image style={styles.titleText} source={require('../Utils/Images/PlantifyHeader.png')} />
             </View>
-            <View style={styles.headerRight}>
+            {props.headerRight && <View style={styles.headerRight} >
                 <TouchableOpacity>
-                    <Icon  />
+                    <Image style={styles.iconBell} source={require('../Utils/Images/IconBell.png')} />
                 </TouchableOpacity>
-
-            </View>
+                <TouchableOpacity>
+                    <Image style={styles.iconMenu} source={require('../Utils/Images/Menu.png')} />
+                </TouchableOpacity>
+            </View>}
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     headerView: {
+        width: '100%',
+        // paddingHorizontal: '2%',
+        flexDirection: 'row',
+        marginBottom: '2%',
+        // backgroundColor: 'green',
+    },
+    headerLeft: {
         width: '70%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        // backgroundColor: 'blue',
     },
     logo: {
-        height: '7%',
-        margin: 20,
-        resizeMode: 'contain'
+        height: '22%',
+        aspectRatio: 1,
+        marginRight: 20,
+        resizeMode: 'contain',
+        // backgroundColor: 'green',
     },
     titleText: {
-        height: '7%',
+        // height: '7%',
+        width: '45%',
+        aspectRatio: 2,
+        resizeMode: 'contain',
+        // backgroundColor: 'lightgrey'
     },
+    headerRight: {
+        width: '30%',
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        // paddingHorizontal: 12,
+        // backgroundColor: 'yellow',
+    },
+    iconBell: {
+        width: '50%',
+        aspectRatio: 2,
+        resizeMode: 'contain',
+        marginHorizontal: 12,
+    }
+
 });
